@@ -1,5 +1,17 @@
 import matplotlib.pyplot as plt
+import csv
+from pandas import *
 
+data = read_csv("features.csv")
+ 
+# converting column data to list
+step = data['Date'].tolist()
+
+months = [i for i in range(len(step))]
+revenue = data['Unemployment'].tolist()
+
+
+ 
 def get_gradient_at_b(x, y, b, m):
   N = len(x)
   diff = 0
@@ -35,8 +47,6 @@ def gradient_descent(x, y, learning_rate, num_iteration):
     b, m = step_gradient(b, m, x, y, learning_rate)
   return [b, m]
 
-months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-revenue = [52, 74, 79, 95, 115, 110, 129, 126, 147, 146, 156, 184]
 
 
 b, m = gradient_descent(months, revenue, 0.01, 1000)
