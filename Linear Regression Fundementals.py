@@ -52,7 +52,6 @@ def gradient_descent(x, y, learning_rate, num_iteration):
 b, m = gradient_descent(months, revenue, 0.01, 1000)
 
 y = [m*x + b for x in months]
-
 plt.plot(months, revenue, "o")
 plt.plot(months, y)
 
