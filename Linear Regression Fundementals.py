@@ -5,10 +5,10 @@ from pandas import *
 data = read_csv("features.csv")
  
 # converting column data to list
-step = data['Date'].tolist()
+step = data['Temperature'].tolist()
 
 months = [i for i in range(len(step))]
-revenue = data['Unemployment'].tolist()
+revenue = data['Fuel_Price'].tolist()
 
 
  
