@@ -57,4 +57,4 @@ for test_images, test_labels in test_dataset.take(1): #predict one sample from t
 predictions.shape
 print(np.argmax(predictions[0]))
 print(test_labels[0]) # If this line and the line above returns the same value, then it is a correct answer. Otherwise the answer is wrong.
-print(class_name[test_labels[0]])
+# print(class_name[test_labels[0]])
