@@ -31,7 +31,16 @@ print("Number of test examples:     {}".format(num_test_examples))
 
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28, 1)), #flattens the 3d image into one array of numbers
-    tf.keras.layers.Dense(128, activation=tf.nn.relu), #creates 128 level of neural networks
+    tf.keras.layers.Dense(512, activation=tf.nn.relu), #creates 128 level of neural networks
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+
     tf.keras.layers.Dense(10, activation=tf.nn.softmax) #softmax produces probability distribution 
 ])
 
@@ -43,7 +52,7 @@ BATCH_SIZE = 32 #Batch size is the number of iterations the neural network does 
 train_dataset = train_dataset.cache().repeat().shuffle(num_train_examples).batch(BATCH_SIZE) #Updates dataset with batch included
 test_dataset = test_dataset.cache().batch(BATCH_SIZE)
 
-model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_test_examples/32)) # This trains the model 
+model.fit(train_dataset, epochs=10, steps_per_epoch=math.ceil(num_test_examples/32)) # This trains the model 
 
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))
 print('Accuracy on test dataset:', test_accuracy)
