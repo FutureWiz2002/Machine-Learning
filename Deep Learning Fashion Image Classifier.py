@@ -4,6 +4,7 @@ import math
 import numpy as np 
 import matplotlib.pyplot as plt
 import logging 
+import cv2 as cv
 
 datasets, metadata = tfds.load('fashion_mnist', as_supervised=True, with_info=True) # Loads the data
 train_dataset, test_dataset = datasets['train'], datasets['test'] # Splits the dataset 
@@ -34,13 +35,6 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(512, activation=tf.nn.relu), #creates 128 level of neural networks
     tf.keras.layers.Dense(512, activation=tf.nn.relu),
     tf.keras.layers.Dense(512, activation=tf.nn.relu),
-    tf.keras.layers.Dense(512, activation=tf.nn.relu),
-
-    tf.keras.layers.Dense(512, activation=tf.nn.relu),
-
-    tf.keras.layers.Dense(512, activation=tf.nn.relu),
-    tf.keras.layers.Dense(512, activation=tf.nn.relu),
-
     tf.keras.layers.Dense(10, activation=tf.nn.softmax) #softmax produces probability distribution 
 ])
 
@@ -65,5 +59,5 @@ for test_images, test_labels in test_dataset.take(1): #predict one sample from t
 
 predictions.shape
 print(np.argmax(predictions[0]))
-print(test_labels[0]) # If this line and the line above returns the same value, then it is a correct answer. Otherwise the answer is wrong.
-print(class_name[test_labels[0]])
+# print(test_labels[0]) # If this line and the line above returns the same value, then it is a correct answer. Otherwise the answer is wrong.
+# print(class_name[test_labels[0]])
